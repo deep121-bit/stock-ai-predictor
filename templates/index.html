@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Stock Predictor</title>
+</head>
+
+<body style="text-align:center; font-family:Arial; background:#f4f4f4; padding-top:40px;">
+
+    <h1>📊 AI Stock Predictor</h1>
+
+    <form method="POST">
+
+        <select name="ticker" style="padding:10px;">
+            <option value="AAPL">AAPL</option>
+            <option value="TSLA">TSLA</option>
+            <option value="MSFT">MSFT</option>
+            <option value="GOOGL">GOOGL</option>
+            <option value="AMZN">AMZN</option>
+            <option value="BTC-USD">BTC-USD</option>
+        </select>
+
+        <button type="submit" style="padding:10px; background:green; color:white;">
+            Predict
+        </button>
+
+    </form>
+
+    <hr>
+
+    {% if prediction %}
+        <h2>📈 Prediction</h2>
+        <h1 style="color:green;">{{ prediction }}</h1>
+    {% endif %}
+
+    {% if error %}
+        <h3 style="color:red;">⚠️ {{ error }}</h3>
+    {% endif %}
+
+    {% if graph %}
+        <h2>📊 Chart</h2>
+        <img src="data:image/png;base64,{{ graph }}" style="width:650px;">
+    {% endif %}
+
+</body>
+</html>
